@@ -19,11 +19,11 @@ k8s-dns-dnsmasq-nanny-${ARCH})
 write_file() {
     dic="$WORKDIR/$1"
     if [ ! -d "$dic" ]; then
-        mkdir $dic
-        touch $dic/Dockerfile
+        mkdir -p $dic/$2
+        touch $dic/$2/Dockerfile
     fi
-    echo "FROM $SERVER_URL/$1:$2" > $dic/Dockerfile
-    echo "MAINTAINER tachao <chao.ta@hanshow.com>" >> $dic/Dockerfile
+    echo "FROM $SERVER_URL/$1:$2" > $dic/$2/Dockerfile
+    echo "MAINTAINER tachao <chao.ta@hanshow.com>" >> $dic/$2/Dockerfile
 }
 for imageName in ${ku_images[@]} ; do
     write_file $imageName $KUBE_V
