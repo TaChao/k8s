@@ -1,2 +1,2 @@
 # k8s
-k8s images
+make chinese user easier to get k8s images
